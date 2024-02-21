@@ -73,7 +73,9 @@ fun LaunchList(onLaunchClick: (launchId: String) -> Unit) {
         item { // highlight-line
             if (response?.data?.launches?.hasMore == true) { // highlight-line
                 LoadingItem() // highlight-line
-                cursor = response?.data?.launches?.cursor // highlight-line
+                LaunchedEffect(response?.data?.launches?.cursor) {
+                    cursor = response?.data?.launches?.cursor // highlight-line
+                }
             } // highlight-line
         } // highlight-line
     }
